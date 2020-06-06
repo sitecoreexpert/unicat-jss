@@ -1,0 +1,33 @@
+query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
+  datasource(value: $datasource){
+    id
+  }
+  
+  contextItem: item(path: $contextItem) {
+    parent {
+      parent {
+      name
+      logo: field(name: "Logo") {
+        value
+        jss
+      }
+      copyright: field(name: "Copyright") {
+        value
+        jss
+      }
+      logoText: field(name: "LogoText") {
+        value
+        jss
+      }
+      orgPhone: field(name: "OrganizationPhone") {
+        value
+        jss
+      }
+      orgEmail: field(name: "OrganizationEmail") {
+        value
+        jss
+      }
+    }
+    }
+  }
+}

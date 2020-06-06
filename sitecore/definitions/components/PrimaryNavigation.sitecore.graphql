@@ -1,0 +1,33 @@
+query IntegratedDemoQuery($datasource: String!, $contextItem: String!) {
+  datasource(value: $datasource){
+    id
+    name
+    children {
+      id
+      name
+      link: field(name: "Link") {
+        value
+        jss
+      }
+      icon: field(name: "Icon") {
+        jss
+      }
+      shortTitle: field(name: "NavigationTitle") {
+        jss
+      }
+    }
+  }
+  
+  contextItem: item(path: $contextItem) {
+    id
+    ...on AppRoute {
+      pageTitle {
+        value
+      }
+    }
+    
+    parent {
+      name
+    }
+  }
+}
